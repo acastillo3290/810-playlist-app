@@ -20,7 +20,10 @@ const logRoutes = (req, res, next) => {
   next();
 };
 
+const parseJSON = express.json();
+
 app.use(serveStatic);
+app.use(parseJSON);
 app.use(logRoutes);
 
 app.get("/api/playlist", servePlaylists);
